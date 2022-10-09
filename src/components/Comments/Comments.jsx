@@ -1,4 +1,4 @@
-import { ThumbsUp, Trash } from 'phosphor-react'
+import { HandsClapping, Trash } from 'phosphor-react'
 import { Avatar } from '../Avatar/Avatar'
 import styles from './Comments.module.css'
 
@@ -22,7 +22,7 @@ export function Comment() {
 
         <footer>
           <button>
-            <ThumbsUp size={24} />
+            <HandsClapping size={24} />
             Aplaudir <span>20</span>
           </button>
         </footer>
