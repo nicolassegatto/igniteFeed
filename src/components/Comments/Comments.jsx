@@ -1,11 +1,33 @@
 import { HandsClapping, Trash } from 'phosphor-react'
+import { useState } from 'react'
 import { Avatar } from '../Avatar/Avatar'
 import styles from './Comments.module.css'
 
-export function Comment({content}) {
+export function Comment({ content, onDeleteComment }) {
+
+  const [Aplausos, setAplausos] = new useState(0)
+
+  function handleDeleteComment() {
+    onDeleteComment(content)
+  }
+
+  function handleAplaudirComentario() {
+    setAplausos((AplausosAtualizado) => {
+      return AplausosAtualizado + 1
+    })
+    /*
+    USAR ESTA FUNÇÃO PASSANDO UMA ARROW FUNC
+    PERMITE COM QUE EU PEGUE SEMPRE O VALOR ATUALIZADO
+    DO APLAUSO, AO INVES DE PEGAR O VALOR DO ESTADO.
+    setAplausos((AplausosAtualizado) => {
+      return AplausosAtualizado + 1
+    })
+    */
+  }
+
   return (
     <div className={styles.comment}>
-      <Avatar src="https://github.com/diego3g.png" hasBorder={false}/>
+      <Avatar src="https://github.com/diego3g.png" hasBorder={false} />
       <div className={styles.commentBox}>
         <div className={styles.commentContent}>
           <header>
@@ -15,15 +37,15 @@ export function Comment({content}) {
                 Cerca de 1hr atrás
               </time>
             </div>
-            <button title='excluir comentario'> <Trash size={24} /> </button>
+            <button onClick={handleDeleteComment} title='excluir comentario'> <Trash size={24} /> </button>
           </header>
           <p>{content}</p>
         </div>
 
         <footer>
-          <button>
+          <button onClick={handleAplaudirComentario}>
             <HandsClapping size={24} />
-            Aplaudir <span>20</span>
+            Aplaudir <span>{Aplausos}</span>
           </button>
         </footer>
       </div>
