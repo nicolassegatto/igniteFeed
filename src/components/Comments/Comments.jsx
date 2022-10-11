@@ -2,7 +2,7 @@ import { HandsClapping, Trash } from 'phosphor-react'
 import { Avatar } from '../Avatar/Avatar'
 import styles from './Comments.module.css'
 
-export function Comment() {
+export function Comment({content}) {
   return (
     <div className={styles.comment}>
       <Avatar src="https://github.com/diego3g.png" hasBorder={false}/>
@@ -17,7 +17,7 @@ export function Comment() {
             </div>
             <button title='excluir comentario'> <Trash size={24} /> </button>
           </header>
-          <p>Adorei seu portfolio!!</p>
+          <p>{content}</p>
         </div>
 
         <footer>

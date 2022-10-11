@@ -4,6 +4,10 @@
   gap: 1rem ;
 }
 
+.comment + .comment{
+  margin-top: 2rem;
+}
+
 .commentBox {
   flex: 1;
 }
